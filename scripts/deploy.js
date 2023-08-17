@@ -3,11 +3,11 @@ const hre = require("hardhat");
 async function main() {
   const [deployer] = await ethers.getSigners();
 
-  console.log("Deploying contract with acconut: ", deployer.address);
+  console.log("Deploying contract with account: ", deployer.address);
   console.log("Account balance: ", (await deployer.getBalance()).toString());
 
-  const MacVenturesToken = await hre.ethers.getContractFactory("CarbonChainToken");
-  const token = await MacVenturesToken.deploy(50000);
+  const Token = await hre.ethers.getContractFactory("CarbonChainToken");
+  const token = await Token.deploy(50000);
 
   await token.deployed();
 
